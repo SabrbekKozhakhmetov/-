@@ -1,23 +1,32 @@
-﻿// Задача 4: Напишите программу, которая принимает на вход 
-//три числа и выдает максимальное из этих чисел
+﻿// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+//M = 1; N = 15 -> 120
+//M = 4; N = 8. -> 30
 
-Console.WriteLine("введите число");
-int score01 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите число 2");
-int score02 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine(" Введите число 3");
-int score03 = Convert.ToInt32(Console.ReadLine());
-
-if (score01> score02)
-    if (score01 > score03)   
-Console. WriteLine(score01 + " Максимальное число");
-else 
-Console.WriteLine(score03 + " Максимальное число");
-
+int SumMN(int m, int n)
 {
-    if (score01 < score02)
-        if (score02 > score03)
-    Console.WriteLine(  score02 + " Максимальное число");
+    int res = m;
+    if (m == n)
+        return 0;
     else
-    Console.WriteLine(score03 + " Максимальное число");
+    {
+        m++;
+        res = m + SumMN(m, n);
+        return res;
+    }
 }
+
+void SumFromMToN(int m, int n)
+{
+    Console.Write(SumMN(m - 1, n));
+}
+
+Console.Write("Введите число M: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Введите число N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+SumFromMToN(m, n);
+
+
+
